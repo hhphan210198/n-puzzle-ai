@@ -1,38 +1,29 @@
-Name: Hieu Phan
+For this project, I implemented different search algorithms to solve the n-puzzle problem, including:
+- BFS
+- Uniform cost search (which do not differ from BFS because step costs are constant)
+- Iterative Deepening DFS
+- A* (Manhattan Heuristic)
+Based on the testing metrics on different boards of different sizes, A* is the most efficient algorithm as expect.
+Boards can be fed as .txt file. Example: 
+1 2 .
+3 4 5
+6 7 8
 
-Fun fact: I have a Scottish fold cat.
+The result will include the solution and its metrics. Example for the board above using a_star:
+1 2 .
+3 4 5
+6 7 8
 
-Uninformed Search: Breadth First Search
+1 . 2
+3 4 5
+6 7 8
 
-Heuristic for A*: the sum of Manhattan distances of the tiles from their goal positions.
+. 1 2
+3 4 5
+6 7 8
 
-Based on the metrics results from different test cases, I can see the pattern that the number of nodes added to the
-frontier, selected to expand, and the maximum size of the search queue of breadth first search are a lot larger than
-those of A*. It is because while A* expand the 'best' node in the search queue, BFS expands each layer of nodes in the
-queue. Therefore, if the solution has a high depth, BFS will take much longer to reach the goal state that A* does.
+Number of nodes added to the frontier is 5.
+Number of nodes selected from the frontier for expansion is 3.
+Maximum size of search queue at any given time of the search is 4.
 
-Running instruction:
-- Breadth-First-Search:
-python bfs.py text_file
-Sample: python bfs.py /Users/hieuphan/Documents/Test_1.txt
-- A Star:
-python a_star.py text_file
-Sample: python bfs.py /Users/hieuphan/Documents/Test_1.txt
-
-Note:
-- Both search methods are able to solve almost all of the 3x3 cases with variety from easy to hard, some simple versions
-of 4x4 and 5x5 puzzles. They do return no solution when 100k limit is reached, even though it will take a while to reach
-100k explored states.
-- I use the number of explored nodes (from the frontier), not the number of nodes generated and added to the frontier,
-to decide if the 100,000k limit has been reached.
-
-Extra Credit Search:
-I also implemented Iterative Deepening DFS, Uniform Cost Search
-Running Instruction:
-- Iterative Deepening DFS:
-python iterative_dfs.py text_file
-Sample: python iterative_dfs.py /Users/hieuphan/Documents/Test_1.txt
-
-- Uniform Cost Search:
-python uniform.py text_file
-Sample: python uniform.py /Users/hieuphan/Documents/Test_1.txt
+(Note: The algorithms will terminate when it reaches 100,000 explored nodes from the frontier and return no solution) 
